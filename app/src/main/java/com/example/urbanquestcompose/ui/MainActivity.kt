@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.DrawerValue
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -35,13 +34,11 @@ import kotlinx.coroutines.launch
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             UrbanQuestComposeTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background,
-
                 ) {
                     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
                     val scope = rememberCoroutineScope()
@@ -79,13 +76,6 @@ class MainActivity : ComponentActivity() {
                                     }
                                 )
                             },*/
-                            bottomBar={
-                                BottomAppBar() {
-                                    Text("BottomBar1")
-                                    Text("BottomBar2")
-                                    Text("BottomBar3")
-                                }
-                            }
                         ) {
                             Column(modifier = Modifier
                                 .padding(top=it.calculateTopPadding(), bottom = it.calculateBottomPadding())){
@@ -98,7 +88,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppBar(title: String, onClick: ()->Unit) {
@@ -111,7 +100,6 @@ fun AppBar(title: String, onClick: ()->Unit) {
                 modifier = Modifier.clickable {
                     Log.d("3","3")
                     onClick()
-                    Log.d("4","4")
                 }
             )
         }

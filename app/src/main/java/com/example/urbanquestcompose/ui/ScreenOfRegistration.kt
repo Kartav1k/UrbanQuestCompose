@@ -27,7 +27,7 @@ import com.example.urbanquestcompose.ui.state_holder.RegistrationViewModel
 
 
 @Composable
-fun ScreenOfRegistration(navController: NavHostController){
+fun ScreenOfRegistration(navController: NavHostController, viewModel: RegistrationViewModel){
     var surname by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
@@ -107,7 +107,6 @@ fun ScreenOfRegistration(navController: NavHostController){
                         email,
                         password
                     )
-                    val viewModel = RegistrationViewModel()
                     viewModel.registerUser(user)
                     navController.navigate("ButtonHub")
                 },
